@@ -34,13 +34,16 @@ var populateList = function(object){
   var artistHead = document.createElement('th');
   artistHead.innerText = 'Artist';
   var albumTitleHead = document.createElement('th');
-  albumTitleHead.innerText = 'Album Title';
+  albumTitleHead.innerText = 'Title';
+  var playHead = document.createElement('th');
+  playHead.innerText = "play";
 
   albumListDiv.appendChild(table);
   table.appendChild(tableHead);
   tableHead.appendChild(sleeveHead);
   tableHead.appendChild(artistHead);
   tableHead.appendChild(albumTitleHead);
+  tableHead.appendChild(playHead);
   table.appendChild(tableBody);
 
 
@@ -60,10 +63,16 @@ var populateList = function(object){
     // create cell for title and populate
     var albumTitle = document.createElement('td');
     albumTitle.innerText = album.name;
+    // add play button
+    var playButton = document.createElement('td');
+    var playUrl = album.external_urls.spotify;
+    playButton.innerHTML = "<a href='" + playUrl + "''>play</a>";
+
     // add 3 cells elements to the new row
     tr.appendChild(sleeve);
     tr.appendChild(artistName);
     tr.appendChild(albumTitle);
+    tr.appendChild(playButton);
 
     var body = document.querySelector('body');
     body.setAttribute('background', getRandomAlbumFromList(listOfAlbums).images[0].url)
