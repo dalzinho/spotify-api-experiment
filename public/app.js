@@ -26,6 +26,7 @@ var populateList = function(object){
   console.log(listOfAlbums);
 
   var albumListDiv = document.querySelector('#albums');
+  albumListDiv.innerHTML = "";
   var table = document.createElement('table');
   var tableHead = document.createElement('thead');
   var tableBody = document.createElement('tbody');
